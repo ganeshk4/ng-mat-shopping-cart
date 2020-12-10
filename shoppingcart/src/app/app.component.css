@@ -1,0 +1,8 @@
+.cart-ico {
+  right: 16px;
+  position: absolute;
+}
+
+.cart-ico.active {
+  cursor: pointer;
+}

@@ -1,0 +1,12 @@
+<p>
+  <mat-toolbar color="primary">
+    <span>Product List</span>
+    <mat-icon (click)="showCart()" [ngClass]="{'active': cartCount}" [matBadge]="cartCount" matBadgeColor="warn" class="cart-ico">shopping_cart</mat-icon>
+  </mat-toolbar>
+</p>
+
+<div [formGroup]="form" fxLayout="row wrap">
+  <app-product-card [product]="product" [formControlName]="product.pid" fxFlex="0 0 18%" fxFlex.xs="0 0 98%" fxFlex.sm="0 0 48%" fxFlex.md="0 0 31%" fxFlex.lg="0 0 23%" fxFlex.xl="0 0 18%" *ngFor="let product of productList"></app-product-card>
+</div>
+
+<router-outlet></router-outlet>

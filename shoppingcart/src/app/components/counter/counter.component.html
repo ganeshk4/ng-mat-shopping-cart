@@ -1,0 +1,7 @@
+<div>
+  <button (click)="decrement()" mat-icon-button><mat-icon>remove</mat-icon></button>
+  <mat-form-field class="qty">
+    <input type="number" min="0" matInput [value]="count">
+  </mat-form-field>
+  <button (click)="increment()" mat-icon-button><mat-icon>add</mat-icon></button>
+</div>
