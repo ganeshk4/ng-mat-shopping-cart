@@ -1,46 +1,27 @@
 import { ProductModel } from 'src/app/models/product-to';
 import { CartService } from 'src/app/services/cart-service/cart.service';
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
-  styleUrls: ['./product-card.component.css'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => ProductCardComponent),
-      multi: true
-    }
-  ]
+  styleUrls: ['./product-card.component.css']
 })
-export class ProductCardComponent implements ControlValueAccessor {
+export class ProductCardComponent {
 
-  onChange = (_: any) => {};
   @Input() product: ProductModel;
   constructor(
     private readonly cartService: CartService
   ) { }
-  writeValue(obj: any): void {
-  }
 
-  registerOnChange(fn: any): void {
-    this.onChange = fn;
-  }
-
-  registerOnTouched(fn: any): void {
-  }
-
-  setDisabledState?(isDisabled: boolean): void {
-  }
-
-  counterChanged(count) {
-    this.onChange(count);
+  /**
+   * calls cart service to check if the product exists in cart
+   */
+  isInCart() {
+    return this.cartService.productIsInCart(this.product);
   }
 
   addToCart() {
-    this.product.isInCart = true;
     this.cartService.addToCart(this.product);
   }
 }

@@ -1,4 +1,3 @@
-
 export interface ProductTo {
   pid: string;
   pName: string;
@@ -7,6 +6,5 @@ export interface ProductTo {
 }
 
 export interface ProductModel extends ProductTo{
-  isInCart: boolean;
   quantity: number;
 }

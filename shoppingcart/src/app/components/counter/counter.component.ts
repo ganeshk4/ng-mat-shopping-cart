@@ -5,20 +5,23 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.css']
 })
-export class CounterComponent implements OnInit {
+export class CounterComponent{
   @Output() countChanged = new EventEmitter();
-  count = 0;
+  count = 1;
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  /**
+   * decrement counter
+   */
   decrement() {
     if (this.count === 0) return;
     --this.count;
     this.countChanged.emit(this.count);
   }
 
+  /**
+   * increments counter
+   */
   increment() {
     ++this.count;
     this.countChanged.emit(this.count);

@@ -13,8 +13,7 @@
         <span class="mat-h2">{{product.pPrice | currency:'INR':'symbol-narrow':'1.2-2'}}</span>
       </div>
       <div fxFlex="0 0 50%" class="align-right">
-        <button [disabled]="product.isInCart" (click)="addToCart()" mat-raised-button color="primary">Add to Cart</button>
-        <!-- <app-counter (countChanged)="counterChanged($event)"></app-counter> -->
+        <button [disabled]="isInCart()" (click)="addToCart()" mat-raised-button color="primary">Add to Cart</button>
       </div>
     </div>
   </mat-card-actions>

@@ -1,0 +1,14 @@
+
+  <mat-grid-list cols="4" rowHeight="50px">
+    <mat-grid-tile>
+      {{product.pName}}
+    </mat-grid-tile>
+    <mat-grid-tile>
+      {{product.pPrice | currency:'INR':'symbol-narrow':'1.2-2'}}
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2">
+      <app-counter (countChanged)="counterChanged($event)"></app-counter>
+      <div class="delete-wrap"><button (click)="removeFromCart()" mat-icon-button><mat-icon>delete</mat-icon></button></div>
+    </mat-grid-tile>
+
+  </mat-grid-list>

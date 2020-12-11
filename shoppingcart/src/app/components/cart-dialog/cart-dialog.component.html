@@ -1,1 +1,21 @@
-<p>cart-dialog works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Cart</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p *ngIf="form" [formGroup]="form" >
+      <app-mini-product [formControlName]="product.pid" [product]="product" *ngFor="let product of productList"></app-mini-product>
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <div fxLayout="row wrap">
+      <div fxFlex="0 0 50%">
+        <span class="mat-h2">Total Amount:{{total | currency:'INR':'symbol-narrow':'1.2-2'}}</span>
+      </div>
+      <div fxFlex="0 0 50%" class="align-right">
+        <button (click)="placeOrder()" mat-raised-button color="primary">Place Order</button>
+      </div>
+    </div>
+  </mat-card-actions>
+</mat-card>
+
